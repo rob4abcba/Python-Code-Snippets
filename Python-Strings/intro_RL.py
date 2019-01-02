@@ -5,10 +5,10 @@ estate agent overprices my home?"  Last but not least, "Is this a good time to b
 selling a home?" is also a very common question that real estate agents are asked.'''
 
 print(message)
-print(len(message))
-print(message.count("real estate"))
-print(message.find("real estate"))
-new_message = message.replace("real estate", "fake estate")
+print(len(message)) #Number of characters in string.
+print(message.count("real estate")) #Good for prioritizing which Mandarin karaoke characters to memorize for karaoke.
+print(message.find("real estate")) #Maybe can use this to find where Chinese characters stop and pinyin starts.
+new_message = message.replace("real estate", "fake estate") #Substitute love words with RE words to create RE versions of love songs.
 print(new_message)
 
 print(message[3:9])
@@ -23,11 +23,11 @@ print(message)
 
 greeting = 'Hello'
 name = 'Michael'
-message = "{} .... {}!!  You da man!".format(greeting, name)
+message = "{} .... {}!!  You da man!".format(greeting, name) #Need to use to format for python2.
 print(message)
-message = f"Really {greeting} .... {name}!!  You da man!"
+message = f"Really {greeting} .... {name}!!  You da man!" #Good for RE form letters to multiple people.  Or cover letters to multiple employers.
 print(message)
-message = f"{greeting.upper()} .... {name.upper()}!!  You da man!"
+message = f"{greeting.upper()} .... {name.upper()}!!  You da man!" #Good for bolding/highlighting key words.
 print(message)
 
 print(dir(message))
