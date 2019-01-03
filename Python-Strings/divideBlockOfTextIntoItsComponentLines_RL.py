@@ -27,6 +27,11 @@ while True:
     if location == -1: break # Break if not found.
     print(location)
 
+python_list = message.split('\n')
+print("python_list = message.split('\\n') = ", python_list)
+python_list_joined = '\n'.join(python_list)
+print("python_list_joined = '\\n'.join(python_list) = ", python_list_joined)
+
 combined = message.replace("\n", "") #Substitute love words with RE words to create RE versions of love songs.
 print("\nRemoving newlines characters combines the lines into ", combined)
 print("The number of characters in the new string without newline characters is ", len(combined))
@@ -110,6 +115,9 @@ print("line4 = ", line4)
 print("line5 = ", line5)
 print("line6 = ", line6)
 #print("line7 until end = ", line7)
+
+python_list = message.split('\n')
+print("python_list = message.split('\\n') = ", python_list)
 
 print("\nNumber of occurrences of 我 = ",message.count("我"))
 print("Index of 1st occurrence of 我 = ",message.find("我"))
