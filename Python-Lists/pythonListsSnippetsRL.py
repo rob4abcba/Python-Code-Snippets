@@ -1,11 +1,15 @@
-
-
 # Mutable
 list_1 = ['History', 'Math', 'Physics', 'CompSci']
 list_2 = list_1
 
 print("list_1 = ", list_1)
 print("list_2 = ", list_2)
+list_1[0] = 'Herstory'
+print("After list_1[0] = 'Herstory':")
+print("list_1 = ", list_1)
+print("list_2 = ", list_2)
+print("Notice that any time you change list_1, then list_2 automatically changes to follow it.")
+print("because they are both the same mutable object.")
 print("len(list_1) = ", len(list_1))
 print("list_1[0] = ", list_1[0])
 print("list_1[-1] = ", list_1[-1])
@@ -74,31 +78,33 @@ print("nums.index(4) = ", nums.index(4))
 print("sum(nums) = ", sum(nums))
 
 
-# list_1[0] = 'Art'
-
-# print(list_1)
-# print(list_2)
-
-
 # Immutable
-# tuple_1 = ('History', 'Math', 'Physics', 'CompSci')
-# tuple_2 = tuple_1
+tuple_1 = ('History', 'Math', 'Physics', 'CompSci')
+tuple_2 = tuple_1
+print("tuple_1 = ", tuple_1)
+print("tuple_2 = ", tuple_2)
+# tuple_1[0] = 'Art'  #CANNOT do this since tuples are IMMUTABLE
 
-# print(tuple_1)
-# print(tuple_2)
-
-# tuple_1[0] = 'Art'
-
-# print(tuple_1)
-# print(tuple_2)
 
 # Sets
-cs_courses = {'History', 'Math', 'Physics', 'CompSci'}
-
-print("cs_courses = ", cs_courses)
-
-print("len(cs_courses) = ", len(cs_courses))
-#print("cs_courses[0] = ", cs_courses[0])
+python_set = {'History', 'Math', 'Physics', 'CompSci', 'Math'}
+print("Python sets associate items together without caring about order plus removes duplicates.")
+print("python_set = ", python_set)
+print("Notice that each time you run, the order changes randomly, plus python automatically removes the duplicate 'Math' item.")
+print("len(python_set) = ", len(python_set))
+print("We can do membership tests in both lists and sets as shown below:")
+print("Boolean 'Math' in list_1 = ", 'Math' in list_1)
+print("Boolean 'Math' in python_set = ", 'Math' in python_set)
+print("However, since sets automatically remove duplicates, sets are optimized for membership tests.")
+#print("python_set[0] = ", python_set[0]) #TypeError: 'set' object does not support indexing
+set1 = {'History', 'Math', 'Physics', 'CompSci'}
+set2 = {'History', 'Math', 'Art', 'Design'}
+print("set1 = ", set1)
+print("set2 = ", set2)
+print("set1.intersection(set2) = ", set1.intersection(set2))
+print("set1.union(set2) = ", set1.union(set2))
+print("set1.difference(set2) = ", set1.difference(set2))
+print("set2.difference(set1) = ", set2.difference(set1))
 
 
 # Empty Lists
