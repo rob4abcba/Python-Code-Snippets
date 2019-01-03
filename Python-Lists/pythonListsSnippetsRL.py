@@ -60,6 +60,13 @@ for index, item in enumerate(list_1):
 for index, item in enumerate(list_1, start=1):
 	print("If start=1: index, item = ", index, item)
 
+list_1_joined = ', '.join(list_1)
+print("list_1_joined = ', '.join(list_1) = ", list_1_joined)
+list_1_joined = ' - '.join(list_1)
+print("list_1_joined = ' - '.join(list_1) = ", list_1_joined)
+new_list = list_1_joined.split(' - ')
+print("new_list = list_1_joined.split(' - ') = ", new_list)
+
 print("min(nums) = ", min(nums))
 print("max(nums) = ", max(nums))
 print(" original nums unchanged = ", nums)
