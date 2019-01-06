@@ -1,5 +1,5 @@
 
-print('Inside my_module...')
+print('inside my_module...')
 
 test = 'Test String'
 
