@@ -1,97 +1,82 @@
 #!/usr/bin/python
 
-#RL Python 3.4 introduced a new standard library for dealing with files and paths called pathlib
+import os
+#print('dir(os) = ', dir(os)) #Shows all available methods in os module. See that getcwd is one of them.
+print('Initially, os.getcwd() = ', os.getcwd()) #cwd = current working directory
+
+path1 = "/usr/tmp"
+path1 = "/Users/rob_t/Videos/4K Video Downloader/"
+os.chdir( path1 ) #change directory
+print('After os.chdir( path1 ), os.getcwd() = ', os.getcwd())
+
+#Python 3.4 introduced pathlib (a new standard library for dealing with files and paths)
 from pathlib import Path
 
-#RL pass a path or filename into a new Path() object using forward slashes and it handles the rest:
-#data_folder = Path("source_data/text_files/")
-data_folder = Path("/c/Users/rob_t/Videos/WinX YouTube Downloader/Automate the Boring Stuff with Python/")
-data_folder = Path("/c/Users/rob_t/Videos/")
-data_folder = Path("C:/Users/rob_t/Videos/")
-data_folder = Path("/Users/rob_t/Videos/")
+#Pass a path or filename into a new Path() object using forward slashes and pathlib handles the rest:
+path2 = Path("/c/Users/rob_t/Videos/WinX YouTube Downloader/Automate the Boring Stuff with Python/")
+path2 = Path("C:/Users/rob_t/Videos/WinX YouTube Downloader/Automate the Boring Stuff with Python/")
+path2 = Path("/Users/rob_t/Videos/WinX YouTube Downloader/Automate the Boring Stuff with Python/")
+os.chdir(path2)
+print('After pathlib, os.getcwd() = ', os.getcwd())
 
-
-import os
-
-# Am I in the correct directory?
-print('os.getcwd() = ', os.getcwd())
-#print('dir(os) = ', dir(os))
-
-file_to_open = data_folder / "raw_data.txt"
-#file_to_open = data_folder / "Lesson 1 - Python Programming (Automate the Boring Stuff with Python).mp4"
+file_to_open = path2 / "raw_data.txt"
+#file_to_open = path2 / "Lesson 1 - Python Programming (Automate the Boring Stuff with Python).mp4"
 
 #f = open(file_to_open)
 
 #print(f.read())
 
-#import os
-path = "/usr/tmp"
-path = "/Users/rob_t/Videos/"
-path = "/Users/rob_t/Videos/4K Video Downloader/"
-
 # # Check current working directory.
 # retval = os.getcwd()
 # print("Current working directory %s" % retval)
 
-# Now change the directory
-os.chdir( path )
-print('os.getcwd() = ', os.getcwd())
-
-os.chdir(data_folder)
-print('os.getcwd() = ', os.getcwd())
-
-# # Check current working directory.
-# retval = os.getcwd()
-
 # print("Directory changed successfully %s" % retval)
-
-
-# print('os.chdir(specify path here)')
-# #os.chdir("C\:\\Users\rob_t\Videos\WinX YouTube Downloader\Automate the Boring Stuff with Python")
-# #os.chdir('.')
-# os.chdir('C:')
-
-# # Am I in the correct directory?
-# print('os.getcwd() = ', os.getcwd())
-
-# print('dir(os) = ', dir(os))
 
 # Print all the current file names
 for f in os.listdir():
     # If .DS_Store file is created, ignore it
     if f == '.DS_Store':
         continue
+    print("\nos.path.splitext(f) = ", os.path.splitext(f))
+    f_name, f_ext = os.path.splitext(f)
+    print("f_name = ", f_name, "\tf_ext = ", f_ext)
+    f_name = f_name.strip()
+    f_ext = f_ext.strip()
 
-    file_name, file_ext = os.path.splitext(f)
-    print(file_name)
+    print("\nf_name.split('-') = ", f_name.split('-'))
+    f_lesson, f_course = f_name.split('-')
+    print("f_lesson = ", f_lesson, "\tf_course = ", f_course)
+    f_lesson = f_lesson.strip()
+    f_course = f_course.strip()
 
-#     # One way to do this
-#     f_title, f_course, f_number = file_name.split('-')
+    print("\nf_lesson.split(' ') = ", f_lesson.split(' '))
+    f_Lesson, f_num = f_lesson.split(' ')
 
-#     # print('{}-{}-{}{}'.format(f_number, f_course, f_title, file_ext))
+    print("f_Lesson = ", f_Lesson, "\tf_num = ", f_num)
 
-#     # Need to remove whitespace
-#     f_title = f_title.strip()
-#     f_course = f_course.strip()
-#     # f_number = f_number.strip()
+    print('{}-{}{}'.format(f_num, f_course, f_ext))
 
-#     # Want to remove the number sign?
-#     # f_number = f_number.strip()[1:]
+    # Need to remove whitespace
+    f_num = f_num.strip() #Strip off whitespace from beg and end
+    f_course = f_course.strip()
+    print("Before zfill(2), f_num = ", f_num)
+    # f_number = f_number.strip()
 
-#     # One thing I noticed about this output is that if it was sorted by filename
-#     # then the 1 and 10 would be next to each other. How do we fix this? One way we can fix this is to pad
-#     # the numbers. So instead of 1, we'll make it 01. If we had hundreds of files then this would maybe need to be 001.
-#     # We can do this in Python with zfill
-#     f_number = f_number.strip()[1:].zfill(2)
+    # Want to remove the number sign?
+    # f_number = f_number.strip()[1:]
 
-#     # print('{}-{}-{}{}'.format(f_number, f_course, f_title, file_ext))
+    # If sorted by filename, then the order 
+    # would be 1, 11, 12, ... 2, 3, ... 
+    # instead of 1, 2, 3, ... 9, 10, 11
+    # Pad numbers, so instead of 1, format them like 01 using zfill(2) 
+    # If hundreds of files, then format them like 001 using zfill(3)
+    f_num = f_num.zfill(2)
+    print("After  zfill(2), f_num = ", f_num)
 
-#     # You have the power to reformat in any way you see fit
-#     print('{}-{}{}'.format(f_number, f_title.strip(), file_ext.strip()))
+    print('{}-{}{}'.format(f_num, f_course, f_ext))
+    new_name = '{}-{}{}'.format(f_num, f_course, f_ext)
 
-#     new_name = '{}-{}{}'.format(file_num, file_title, file_ext)
-
-#     os.rename(fn, new_name)
+    #os.rename(f, new_name)
 
 
 # # print(len(os.listdir()))
