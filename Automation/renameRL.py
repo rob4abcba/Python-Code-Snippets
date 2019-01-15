@@ -4,8 +4,8 @@ import os
 #print('dir(os) = ', dir(os)) #Shows all available methods in os module. See that getcwd is one of them.
 print('Initially, os.getcwd() = ', os.getcwd()) #cwd = current working directory
 
-path1 = "/usr/tmp"
-path1 = "/Users/rob_t/Videos/4K Video Downloader/"
+#path1 = "/usr/tmp"
+path1 = "/Users/rob_t/Videos/WinX YouTube Downloader/"
 os.chdir( path1 ) #change directory
 print('After os.chdir( path1 ), os.getcwd() = ', os.getcwd())
 
@@ -76,7 +76,7 @@ for f in os.listdir():
     print('{}-{}{}'.format(f_num, f_course, f_ext))
     new_name = '{}-{}{}'.format(f_num, f_course, f_ext)
 
-    #os.rename(f, new_name)
+    os.rename(f, new_name)
 
 
 # # print(len(os.listdir()))
