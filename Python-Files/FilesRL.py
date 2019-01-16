@@ -1,13 +1,13 @@
 #File Objects
 
 ##The Basics:
-#f = open("test.txt", "r")
+f = open("test.txt", "r")
 #f = open("test.txt", "w")
 #f = open("test.txt", "a")
 #f = open("test.txt", "r+")
-#print(f.name)
-#print(f.mode)
-#f.close()
+print(f.name)
+print(f.mode)
+f.close()
 
 ##Reading Files:
 #with open("test.txt", "r") as f:
